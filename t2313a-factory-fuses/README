@@ -1,0 +1,10 @@
+The files in this directory are provided in the unfortunate event that bad fuse
+bits are set, leaving the AVR in a seemingly bricked state.
+
+These files, with a little RTFM and a little hacking can be used to program the
+fuses to their default factory state, allowing your AVR to be programmed again
+using the internal RC oscillator rather than buy another $3 microcontroller.
+
+These values are provided as a convenience, these values can be found in the
+MCU datasheet as well. You are unlikely to have problems however, but mistakes
+do happen occasionally.

@@ -1,0 +1,25 @@
+# WARNING -- programming the fuse bits incorrectly may brick your device, or
+#            leave it in a state that it can no longer be programmed, or is
+#            very difficult to restore to a state where the proper fuses can
+#            be programmed. In particular fuses which select the clock source
+#            can leave your avr unprogrammable, this can be fixed however by
+#            providing an external clock source for the MCU while programming.
+#            either an external oscillator, or an external clock signal, which
+#            can be generated using a second microcontroller.
+
+
+The files in this directory are to be used to set the fuse bits of attiny2313a
+to the values that are required for this project, which uses an external clock
+source (8.192MHz crystal oscillator), which also disables the internal 
+RC oscillator.
+
+These fuse bits must be set for the project to work with the hardware it was
+intended for. After these fuses have been set, it will no longer be able to 
+be programmed without an external oscillator conected to the MCU during 
+programming.
+
+Reading the source code, and the microcontroller datasheet would not be a bad
+idea, and if you run into any problems where it seems your AVR has been
+bricked then you will have to RTFM. I do not expect you will have any problems
+with fuses if you follow this README file, using the fuse values contained
+in this directory.
