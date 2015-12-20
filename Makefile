@@ -26,22 +26,22 @@ HEX= $(ELF:.elf=.hex)
 
 all: $(HEX)
 
-$(HEX): $(ELF) 
-        $(OBJCOPY) $(SEGMENTS) -O ihex $(ELF) $(HEX)
+$(HEX): $(ELF)
+	$(OBJCOPY) $(SEGMENTS) -O ihex $(ELF) $(HEX)
 
 $(ELF): $(OBJS)
-        $(CC) $(CFLAGS) -o $(ELF) $(OBJS) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $(ELF) $(OBJS) $(LDFLAGS)
 
+.c.o:   $(SRCS) 
+	$(CC) $(CFLAGS) -c  $< -o $@
 
-.c.o: $(SRCS) 
-        $(CC) $(CFLAGS) -c  $< -o $@
 .PHONY: all clean program asm
 
 clean:
-        $(RM) $(OBJS) $(ELF) $(HEX) *.map
+	$(RM) $(OBJS) $(ELF) $(HEX) *.map *.s
 
 program:
-        $(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_MEM)
+	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_MEM)
 
 asm:
-        $(CC) $(CFLAGS) -S -o hexclock.s $(SRCS)
+	$(CC) $(CFLAGS) -S -o hexclock.s $(SRCS)
