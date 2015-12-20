@@ -1,0 +1,17 @@
+Building and programming this device is handled by the Makefile. This project
+Was written for attiny2313a, and could most likely be ported relatively easy
+to other 8-bit AVR with minor source modification.
+
+The Makefile will also burn the flash, but may require modification so that
+avrdude receives the correct arguments for the particular programmer you are
+using. The Makefile currently does not touch the fuse bits. These will have to
+be set using avrdude, the fuse files are found in the t2313a-project-fuses
+directory, along with a README file relevant to that directory.
+
+As is typical, to build run make in this directory. To burn the program to the
+chip, you will need a suitable AVR programmer. I, the developer of this project
+used the usbtiny ISP programmer. If it's not obvious, I will mention that you
+will be required to build a small programming board, contaning an IC socket
+for the microcontroller, as well as ISP pin headers, and possibly a clock
+crystal (this is necessary when your fuse bits are set to use an external clock
+source).
