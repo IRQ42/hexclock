@@ -15,3 +15,6 @@ will be required to build a small programming board, contaning an IC socket
 for the microcontroller, as well as ISP pin headers, and possibly a clock
 crystal (this is necessary when your fuse bits are set to use an external clock
 source).
+
+If you would like to compile to AVR assembly, the makefile has another phony
+target 'asm'. Running make asm will compile to assembly language.
